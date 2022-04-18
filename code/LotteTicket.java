@@ -65,10 +65,27 @@ public class LotteTicket {
 	}
 
 	int orderCitizenNum(int citizenNum) {
+		int returnIndex = 0;
 		Scanner scan = new Scanner(System.in);
-		System.out.println("주민번호를 뒷자리 첫째자리까지 입력하세요 (ex:9304081) : ");
-		citizenNum = scan.nextInt();
-		citizenNum += PROTECT_CITIZEN_NUM;
+
+		while (returnIndex == 0) {
+			System.out.println("주민번호를 뒷자리 첫째자리까지 입력하세요 (ex:9304081) : ");
+			citizenNum = scan.nextInt();
+			citizenNum += PROTECT_CITIZEN_NUM; // +10000000
+			returnIndex++;
+			int citizenMil = citizenNum % 10;
+			int citizenDay = (citizenNum / 10) % 100;
+			int citizenMonth = (citizenNum / 1000) % 100;
+			int citizenYear = (citizenNum / 100000) % 100;
+			if (citizenDay < 1 || citizenDay > 31) {
+				returnIndex = 0;
+				System.out.println("잘못 입력하였습니다. 다시 입력해주세요");
+			}
+			if (citizenMonth < 1 || citizenMonth > 12) {
+				returnIndex = 0;
+				System.out.println("잘못 입력하였습니다. 다시 입력해주세요");
+			}
+		}
 		return citizenNum;
 	}
 
@@ -386,7 +403,7 @@ public class LotteTicket {
 		int exitIndex = 0;
 		int companionPrint = 0; // 동반할인 프린트 여부 index
 
-		LotteTicket lt = new LotteTicket();
+		LotteTicket lt = new LotteTicket(); // void main 애들은 바깥세상을 모른다 , 알려주어야 함
 		while (true) {
 			lt.inputData(position, inputList, companionPrint);
 			// 고객정보 저장
