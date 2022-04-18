@@ -292,7 +292,7 @@ public class LotteTicket {
 	}
 
 	// int -> char* 변환
-	static String convertTicketClass(int input) {
+	String convertTicketClass(int input) {
 		String ticketClass = "";
 		if (input == 1) {
 			ticketClass = "종합이용권";
@@ -302,7 +302,7 @@ public class LotteTicket {
 		return ticketClass;
 	}
 
-	static String convertTicketType(int input) {
+	String convertTicketType(int input) {
 		String ticketType = "";
 		if (input == 1) {
 			ticketType = "1Day";
@@ -312,7 +312,7 @@ public class LotteTicket {
 		return ticketType;
 	}
 
-	static String convertAgeGroup(int input) {
+	String convertAgeGroup(int input) {
 		String ageGroup = "";
 		if (input == 0) {
 			ageGroup = "영유아";
@@ -330,7 +330,7 @@ public class LotteTicket {
 		return ageGroup;
 	}
 
-	static String convertPreferClass(int input) {
+	String convertPreferClass(int input) {
 		String preferClass = "";
 		if (input == 1) {
 			preferClass = "없음";
@@ -350,7 +350,7 @@ public class LotteTicket {
 		return preferClass;
 	}
 
-	static int entrancePrint(int inputList[][], int position, int companionPrint) {
+	int entrancePrint(int inputList[][], int position, int companionPrint) {
 
 		int totalPrice = 0;
 		System.out.println("티켓 발권을 종료합니다. 감사합니다.");
@@ -371,8 +371,8 @@ public class LotteTicket {
 		return 2;
 	}
 
-	static int continuePrint(int inputList[][], int position, int companionPrint) {
-
+	int continuePrint(int inputList[][], int position, int companionPrint) {
+		LotteTicket lt = new LotteTicket();
 		System.out.println("계속 발권 하시겠습니까?");
 		System.out.println("1. 티켓 발권");
 		System.out.println("2. 종료");
@@ -383,7 +383,7 @@ public class LotteTicket {
 			return 0;
 		} else if (continueSelect == 2) {
 			int reset;
-			reset = entrancePrint(inputList, position, companionPrint);
+			reset = lt.entrancePrint(inputList, position, companionPrint);
 			return reset;
 		} else if (continueSelect == 33) { // 숨겨진 번호 33을 누르면 시스템 종료
 			return 1;
@@ -407,7 +407,7 @@ public class LotteTicket {
 		while (true) {
 			lt.inputData(position, inputList, companionPrint);
 			// 고객정보 저장
-			int exitIndex1 = continuePrint(inputList, position, companionPrint);
+			int exitIndex1 = lt.continuePrint(inputList, position, companionPrint);
 			position++; // 배열위치 변경
 			if (exitIndex1 == 1) {
 				break;
