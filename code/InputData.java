@@ -15,15 +15,15 @@ public class InputData { // 입력부
 			System.out.println("1. 종합이용권 (롯데월드 + 민속박물관)");
 			System.out.println("2. 파크이용권 (롯데월드)");
 			Scanner scan = new Scanner(System.in);
-			orderItem.ticketClass = scan.nextInt();
+			orderItem.setTicketClass(scan.nextInt());
 
-			if (orderItem.ticketClass > 2 || orderItem.ticketClass < 1) {
+			if (orderItem.getTicketClass() > 2 || orderItem.getTicketClass() < 1) {
 				system.errorMessagePrint();
 				errorIndex = 0;
 			}
 		}
 
-		return orderItem.ticketClass;
+		return orderItem.getTicketClass();
 
 	}
 
@@ -36,13 +36,13 @@ public class InputData { // 입력부
 			System.out.println("1. 1Day");
 			System.out.println("2. After4 (오후 4시부터 입장)");
 			Scanner scan = new Scanner(System.in);
-			orderItem.ticketType = scan.nextInt();
-			if (orderItem.ticketType > 2 || orderItem.ticketType < 1) {
+			orderItem.setTicketType(scan.nextInt());
+			if (orderItem.getTicketType() > 2 || orderItem.getTicketType() < 1) {
 				system.errorMessagePrint();
 				errorIndex = 0;
 			}
 		}
-		return orderItem.ticketType;
+		return orderItem.getTicketType();
 
 	}
 
@@ -53,12 +53,12 @@ public class InputData { // 입력부
 
 		while (returnIndex == 0) {
 			System.out.println("주민번호를 뒷자리 첫째자리까지 입력하세요 (ex:9304081) : ");
-			orderItem.citizenNum = scan.nextLine();
+			orderItem.setCitizenNum(scan.nextLine());
 			returnIndex++;
-			int citizenMil = Integer.parseInt(orderItem.citizenNum.substring(6, 7));
-			int citizenDay = Integer.parseInt(orderItem.citizenNum.substring(4, 6));
-			int citizenMonth = Integer.parseInt(orderItem.citizenNum.substring(2, 4));
-			int citizenYear = Integer.parseInt(orderItem.citizenNum.substring(0, 2));
+			int citizenMil = Integer.parseInt(orderItem.getCitizenNum().substring(6, 7));
+			int citizenDay = Integer.parseInt(orderItem.getCitizenNum().substring(4, 6));
+			int citizenMonth = Integer.parseInt(orderItem.getCitizenNum().substring(2, 4));
+			int citizenYear = Integer.parseInt(orderItem.getCitizenNum().substring(0, 2));
 
 			if (citizenDay < 1 || citizenDay > 31) {
 				returnIndex = 0;
@@ -69,7 +69,7 @@ public class InputData { // 입력부
 				system.errorMessagePrint();
 			}
 		}
-		return orderItem.citizenNum;
+		return orderItem.getCitizenNum();
 	}
 
 	int orderTicketCount(int ticketCount) { // 티켓 장수 입력
@@ -80,13 +80,13 @@ public class InputData { // 입력부
 		while (errorIndex == 0) {
 			errorIndex = 1;
 			System.out.println("몇개를 주문하시겠습니까?(최대 10개)");
-			orderItem.ticketCount = scan.nextInt();
-			if (orderItem.ticketCount > 10 || orderItem.ticketCount < 1) {
+			orderItem.setTicketCount(scan.nextInt());
+			if (orderItem.getTicketCount() > 10 || orderItem.getTicketCount() < 1) {
 				system.errorMessagePrint();
 				errorIndex = 0;
 			}
 		}
-		return orderItem.ticketCount;
+		return orderItem.getTicketCount();
 
 	}
 
@@ -94,7 +94,7 @@ public class InputData { // 입력부
 
 		Scanner scan = new Scanner(System.in);
 		OrderData orderItem = new OrderData();
-		while (orderItem.preferClass < 1 || orderItem.preferClass > 6) {
+		while (orderItem.getPreferClass() < 1 || orderItem.getPreferClass() > 6) {
 			System.out.println("우대사항을 선택하세요.");
 			System.out.println("1. 없음 (나이 우대는 자동처리)");
 			System.out.println("2. 장애인 우대"); // 동반1인
@@ -102,12 +102,12 @@ public class InputData { // 입력부
 			System.out.println("4. 휴가장병 우대"); // 동반1인
 			System.out.println("5. 임산부 우대");
 			System.out.println("6. 다둥이 행복카드 우대");
-			orderItem.preferClass = scan.nextInt();
-			if (orderItem.preferClass < 1 || orderItem.preferClass > 6) {
+			orderItem.setPreferClass(scan.nextInt());
+			if (orderItem.getPreferClass() < 1 || orderItem.getPreferClass() > 6) {
 				system.errorMessagePrint();
 			}
 		}
-		return orderItem.preferClass;
+		return orderItem.getPreferClass();
 	}
 
 	

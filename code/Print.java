@@ -14,13 +14,13 @@ public class Print { // 출력부
 
 		for (int column = 0; column <= position; column++) {
 
-			String ticketClass = convert.convertTicketClass(orderList.get(column).ticketClass);
-			String ticketType = convert.convertTicketType(orderList.get(column).ticketType);
-			String ageGroup = convert.convertAgeGroup(orderList.get(column).ageGroup);
-			String preferClass = convert.convertPreferClass(orderList.get(column).preferClass);
+			String ticketClass = convert.convertTicketClass(orderList.get(column).getTicketClass());
+			String ticketType = convert.convertTicketType(orderList.get(column).getTicketType());
+			String ageGroup = convert.convertAgeGroup(orderList.get(column).getAgeGroup());
+			String preferClass = convert.convertPreferClass(orderList.get(column).getPreferClass());
 			// ticketClass ticketType ageGroup ticketCount price preferClass
 			System.out.println(ticketClass + "\t" + ticketType + "\t" + ageGroup + "\t"
-					+ orderList.get(column).ticketCount + "장\t" + orderList.get(column).price + "원\t*" + preferClass);
+					+ orderList.get(column).getTicketCount() + "장\t" + orderList.get(column).getPrice() + "원\t*" + preferClass);
 
 		}
 
