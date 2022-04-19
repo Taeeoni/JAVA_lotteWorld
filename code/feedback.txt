@@ -1,0 +1,29 @@
+데이터 저장이 필요한것? 
+
+	public int ticketClass; // 권종 int (1. 종합이용권 , 2. 파크이용권)
+	public int ticketType; // 티켓타입 int (1. 1일권, 2. After4)
+	public int citizenNum; // 주민번호 String 
+	public int ticketCount; // 주문개수 int (최대 10개)
+	public int preferClass; // 우대사항 int 
+
+
+OrderData . class
+-> 이 클래스 정보를  쓰고 수정하려면
+OrderData orderItem = new OrderData();
+ orderItem. ~~~
+
+ArrayList의 데이터 타입을 클래스 타입으로 선언해주면
+객체를 만들지않고 바로 접근이 가능 -> 제네릭
+List< OrderData > orderList = new ArrayList<>()
+
+오늘의 에러 : 
+System.out.println(orderList.get(position).preferClass);
+
+ArrayList (orderList) 
+{ 0           ,           1          ,        2 .... }
+ticketClass        ticketClass
+ticketType        ticketType
+citizenNum       citizenNum
+ ....                      ....
+ ....                      .....
+이런느낌!!!
