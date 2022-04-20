@@ -8,6 +8,7 @@ public class InputData { // 입력부
 	
 	int orderTicketClass() { // 이용권 종류 입력
 		OrderData orderItem = new OrderData();
+		ErrorProcess error = new ErrorProcess();
 		int errorIndex = 0;
 		while (errorIndex == 0) {
 			errorIndex = 1;
@@ -18,7 +19,7 @@ public class InputData { // 입력부
 			orderItem.setTicketClass(scan.nextInt());
 
 			if (orderItem.getTicketClass() > 2 || orderItem.getTicketClass() < 1) {
-				system.errorMessagePrint();
+				error.errorMessagePrint();
 				errorIndex = 0;
 			}
 		}
@@ -29,6 +30,7 @@ public class InputData { // 입력부
 
 	int orderTicketType() { // 권종 종류 입력
 		OrderData orderItem = new OrderData();
+		ErrorProcess error = new ErrorProcess();
 		int errorIndex = 0;
 		while (errorIndex == 0) {
 			errorIndex = 1;
@@ -38,7 +40,7 @@ public class InputData { // 입력부
 			Scanner scan = new Scanner(System.in);
 			orderItem.setTicketType(scan.nextInt());
 			if (orderItem.getTicketType() > 2 || orderItem.getTicketType() < 1) {
-				system.errorMessagePrint();
+				error.errorMessagePrint();
 				errorIndex = 0;
 			}
 		}
@@ -50,6 +52,7 @@ public class InputData { // 입력부
 		int returnIndex = 0;
 		Scanner scan = new Scanner(System.in);
 		OrderData orderItem = new OrderData();
+		ErrorProcess error = new ErrorProcess();
 
 		while (returnIndex == 0) {
 			System.out.println("주민번호를 뒷자리 첫째자리까지 입력하세요 (ex:9304081) : ");
@@ -62,11 +65,11 @@ public class InputData { // 입력부
 
 			if (citizenDay < 1 || citizenDay > 31) {
 				returnIndex = 0;
-				system.errorMessagePrint();
+				error.errorMessagePrint();
 			}
 			if (citizenMonth < 1 || citizenMonth > 12) {
 				returnIndex = 0;
-				system.errorMessagePrint();
+				error.errorMessagePrint();
 			}
 		}
 		return orderItem.getCitizenNum();
@@ -76,13 +79,14 @@ public class InputData { // 입력부
 
 		Scanner scan = new Scanner(System.in);
 		OrderData orderItem = new OrderData();
+		ErrorProcess error = new ErrorProcess();
 		int errorIndex = 0;
 		while (errorIndex == 0) {
 			errorIndex = 1;
 			System.out.println("몇개를 주문하시겠습니까?(최대 10개)");
 			orderItem.setTicketCount(scan.nextInt());
 			if (orderItem.getTicketCount() > 10 || orderItem.getTicketCount() < 1) {
-				system.errorMessagePrint();
+				error.errorMessagePrint();
 				errorIndex = 0;
 			}
 		}
@@ -94,6 +98,7 @@ public class InputData { // 입력부
 
 		Scanner scan = new Scanner(System.in);
 		OrderData orderItem = new OrderData();
+		ErrorProcess error = new ErrorProcess();
 		while (orderItem.getPreferClass() < 1 || orderItem.getPreferClass() > 6) {
 			System.out.println("우대사항을 선택하세요.");
 			System.out.println("1. 없음 (나이 우대는 자동처리)");
@@ -104,7 +109,7 @@ public class InputData { // 입력부
 			System.out.println("6. 다둥이 행복카드 우대");
 			orderItem.setPreferClass(scan.nextInt());
 			if (orderItem.getPreferClass() < 1 || orderItem.getPreferClass() > 6) {
-				system.errorMessagePrint();
+				error.errorMessagePrint();
 			}
 		}
 		return orderItem.getPreferClass();
