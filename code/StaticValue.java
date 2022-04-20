@@ -17,4 +17,30 @@ public class StaticValue {
 
 	// 할인율
 	static final double DISABLED = 0.5, NATIONAL_MERIT = 0.5, SOLDIER = 0.49, PREGNANT = 0.5, MANY_CHILDREN = 0.3;
+
+	// 종합이용권 String 호출
+	static final String ALL = "종합이용권";
+	static final String PARK = "파크이용권";
+	
+	// 권종 String 호출 
+	static final String FULLDAY = "1Day";
+	static final String AFTER4 = "After4";
+	
+	// 나이그룹 String 호출
+	static final String LITTLE = "영유아";
+	static final String BABY = "유아";
+	static final String KID = "어린이";
+	static final String TEEN = "청소년";
+	static final String ADULT = "성인";
+	static final String OLD = "노인";
+	
+	// 우대사항 String 호출
+	static final String NOTHING_STR = "없음";
+	static final String DISABLED_STR = "장애인";
+	static final String NATIONAL_STR = "국가유공자";
+	static final String SOLDIER_STR = "휴가장병";
+	static final String PREGNANT_STR = "임산부";
+	static final String MANYCHIRDREN_STR = "다둥이";
+	static final String COMPANION_STR = "동반할인";
+
 }

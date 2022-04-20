@@ -16,7 +16,7 @@ public class InputCalculate { // 처리부
 		int gender = Integer.parseInt(citizenNum.substring(6, 7)); // 주민번호 뒷자리 1, 2, 3, 4
 		int birthDay = Integer.parseInt(citizenNum) / 10;
 		if (gender >= 3) {
-			birthDay += StaticValue.NEW_GENERATION; // + 2000.00.00
+			birthDay += StaticValue.NEW_GENERATION; // + 2000.00.00 // static으로 되어있어서 객체생성 없이 바로 호출 가능
 		} else {
 			birthDay += StaticValue.OLD_GENERATION; // + 1900.00.00
 		}
