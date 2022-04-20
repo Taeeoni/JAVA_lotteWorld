@@ -2,11 +2,10 @@ package LotteTicket;
 
 import java.util.ArrayList;
 
-public class TicketProcess {
+public class TicketLogic {
 	
-	void inputData(int position, ArrayList<OrderData> orderList) {
+	void logic(int position, ArrayList<OrderData> orderList) {
 		
-		TicketSystem system = new TicketSystem();
 		int manAge = 0;
 		int companionIndex = 0;
 		int companionPrint = 0;
@@ -15,7 +14,6 @@ public class TicketProcess {
 		InputData input = new InputData(); // 입력부
 		InputCalculate cal = new InputCalculate(); // 처리부
 		Print print = new Print(); // 출력부
-		SaveArray save = new SaveArray(); // 배열저장
 
 		orderItem.setTicketClass(input.orderTicketClass()); // 이용권
 		orderItem.setTicketType(input.orderTicketType()); // 권종
@@ -49,7 +47,13 @@ public class TicketProcess {
 			companionPrint = 0;
 		}
 		
-		save.savedInforms(orderItem, orderList);
+		savedInforms(orderItem, orderList); // 배열 저장
+	}
+	
+	
+	void savedInforms(OrderData orderItem, ArrayList<OrderData> orderList) {
+
+		orderList.add(orderItem);
 	}
 
 }

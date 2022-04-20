@@ -16,11 +16,11 @@ public class TicketSystem {
 			int companionPrint = 0; // 동반할인 프린트 여부 index
 			ArrayList<OrderData> orderList = new ArrayList<OrderData>(); // arraylist reset
 			Print print = new Print(); 
-			TicketProcess process = new TicketProcess();
+			TicketLogic process = new TicketLogic();
 
 			while (exitIndex != 2) {
 
-				process.inputData(position, orderList);
+				process.logic(position, orderList);
 				// 고객정보 저장
 				exitIndex = print.continuePrint(position, orderList);
 				position++; // 배열위치 변경
