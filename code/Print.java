@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Print { // 출력부
-	int entrancePrint(int position, int companionPrint, ArrayList<OrderData> orderList) {
+	int entrancePrint(int position, ArrayList<OrderData> orderList) {
 
-		OrderData orderItem = new OrderData();
 		ConvertOutput convert = new ConvertOutput();
 		int totalPrice = 0;
 		System.out.println("티켓 발권을 종료합니다. 감사합니다.");
@@ -27,7 +26,7 @@ public class Print { // 출력부
 		return 2;
 	}
 
-	int continuePrint(int position, int companionPrint, ArrayList<OrderData> orderList) {
+	int continuePrint(int position, ArrayList<OrderData> orderList) {
 		
 		System.out.println("계속 발권 하시겠습니까?");
 		System.out.println("1. 티켓 발권");
@@ -39,7 +38,7 @@ public class Print { // 출력부
 			return 0;
 		} else if (continueSelect == 2) {
 			int reset;
-			reset = entrancePrint(position, companionPrint, orderList);
+			reset = entrancePrint(position, orderList);
 			return reset;
 		} else if (continueSelect == 33) { // 숨겨진 번호 33을 누르면 시스템 종료
 			return 1;

@@ -1,7 +1,17 @@
 package LotteTicket;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class InputCalculate { // 贸府何
-	int calcAge(String citizenNum, int nowTime) {
+	int calcAge(String citizenNum) {
+		
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+		Date today = new Date();
+		int nowTime = Integer.parseInt(format.format(today));
+		
 		OrderData orderItem = new OrderData(); // 9304081
 		int gender = Integer.parseInt(citizenNum.substring(6, 7)); // 林刮锅龋 缔磊府 1, 2, 3, 4
 		int birthDay = Integer.parseInt(citizenNum) / 10;
@@ -12,7 +22,7 @@ public class InputCalculate { // 贸府何
 		}
 		int age = (nowTime - birthDay) / 10000;
 		return age;
-
+		
 	}
 
 	int calcAgeGroup(int manAge) {
