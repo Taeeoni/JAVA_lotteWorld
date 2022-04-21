@@ -82,8 +82,126 @@ public class Print { // 출력부
 		}
 	}
 
-	void printCsv() {
-
+	void printCsv() throws IOException { //lotteReport.csv 파일의 상황을 출
+		
+		File file = new File("C:\\test\\lotteworldreport\\lotteReport.csv");
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		String line;
+		System.out.println("");
+		System.out.println("--------------------- lotteReport --------------------------");
+		
+		while((line = br.readLine()) != null) {
+			String[] lineSplit = line.split(",");	
+			for(int i = 0; i < lineSplit.length; i++) {
+				System.out.printf("%8s", lineSplit[i]);	
+			}		
+			System.out.println("");
+		}
+		System.out.println("------------------------------------------------------------");
+		salesAnalysis();
+	}
+	
+	
+	void salesAnalysis() throws NumberFormatException, IOException {
+		System.out.println("---------------------이용권 별 판매 현황-------------------------");
+		int count1 = 0;
+		int dayCount = 0;
+		int after4Count = 0;
+		int littleCount = 0;
+		int babyCount = 0;
+		int kidCount = 0;
+		int teenCount = 0;
+		int adultCount = 0;
+		int oldCount = 0;
+		int priceSum = 0;
+		
+		int count1P = 0;
+		int dayCountP = 0;
+		int after4CountP = 0;
+		int littleCountP = 0;
+		int babyCountP = 0;
+		int kidCountP = 0;
+		int teenCountP = 0;
+		int adultCountP = 0;
+		int oldCountP = 0;
+		int priceSumP = 0;
+		
+		File file = new File("C:\\test\\lotteworldreport\\lotteReport.csv");
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		String line;
+		int readLineCount = 0;
+		
+		while((line = br.readLine()) != null) {
+			
+			if(readLineCount >= 1) {
+				String[] lineSplit2 = line.split(",");
+	
+				if(lineSplit2[1].equals("종합이용권")) {
+					count1++;
+					
+					if(lineSplit2[2].equals("1Day")) {
+						dayCount++;
+					} else if(lineSplit2[2].equals("After4")) {
+						after4Count++;
+					}
+					
+					if(lineSplit2[3].equals("영유아")) {
+						littleCount++;
+					} else if(lineSplit2[3].equals("유아")) {
+						babyCount++;
+					} else if(lineSplit2[3].equals("어린이")) {
+						kidCount++;
+					} else if(lineSplit2[3].equals("청소년")) {
+						teenCount++;
+					} else if(lineSplit2[3].equals("성인")) {
+						adultCount++;
+					} else if(lineSplit2[3].equals("노인")) {
+						oldCount++;
+					}
+					
+					priceSum += Integer.parseInt(lineSplit2[5]);
+					
+				} else if(lineSplit2[1].equals("파크이용권")) {
+					count1P++;
+					
+					if(lineSplit2[2].equals("1Day")) {
+						dayCountP++;
+					} else if(lineSplit2[2].equals("After4")) {
+						after4CountP++;
+					}
+					
+					if(lineSplit2[3].equals("영유아")) {
+						littleCountP++;
+					} else if(lineSplit2[3].equals("유아")) {
+						babyCountP++;
+					} else if(lineSplit2[3].equals("어린이")) {
+						kidCountP++;
+					} else if(lineSplit2[3].equals("청소년")) {
+						teenCountP++;
+					} else if(lineSplit2[3].equals("성인")) {
+						adultCountP++;
+					} else if(lineSplit2[3].equals("노인")) {
+						oldCountP++;
+					}
+					
+					priceSumP += Integer.parseInt(lineSplit2[5]);
+				}
+	
+			}
+			readLineCount++;
+		}
+		System.out.println("종합이용권 총 " + count1 + "매");
+		System.out.println("1Day : " + dayCount + "매 , After4 : " + after4Count + "매");
+		System.out.println("영유아 " + littleCount + " 유아 " + babyCount + " 어린이 " 
+				+ kidCount + " 청소년 " + teenCount + " 성인 " + adultCount + " 노인 " + oldCount);
+		System.out.println("종합이용권 총 매출 : " + priceSum + "원");
+		System.out.println("");
+		System.out.println("파크이용권 총 " + count1P + "매");
+		System.out.println("1Day : " + dayCountP + "매 , After4 : " + after4CountP + "매");
+		System.out.println("영유아 " + littleCountP + " 유아 " + babyCountP + " 어린이 " 
+				+ kidCountP + " 청소년 " + teenCountP + " 성인 " + adultCountP + " 노인 " + oldCountP);
+		System.out.println("파크이용권 총 매출 : " + priceSumP + "원");
+		
 	}
 
 	int continuePrint(int position, ArrayList<OrderData> orderList) throws IOException {

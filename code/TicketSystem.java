@@ -35,17 +35,19 @@ public class TicketSystem {
 
 			ArrayList<OrderData> orderList = new ArrayList<OrderData>(); // arraylist reset
 			Print print = new Print(); 
-
-			while (exitIndex != 2 && exitIndex != 1) {
+			position = 0;
+			
+			while (exitIndex != 2 && exitIndex != 1) { // exitIndex 0은 새로운사람 발권 , 1은 시스템종료, 2는 계속발권 
 
 				logic(position, orderList);
 				// 고객정보 저장
 				
-				if(indexTitlePrint == true) {
-					print.printTitle();
+				if(indexTitlePrint == true) { // 시스템 처음 시작했다는 index
+					print.printTitle(); // csv파일 항목들(맨윗줄) 작성 메쏘드
 					indexTitlePrint = false;
 				}
-				exitIndex = print.continuePrint(position, orderList);
+				
+				exitIndex = print.continuePrint(position, orderList); // 고객이 입력한 정보 print 
 				position++; // 배열위치 변경
 				System.out.println("\n");
 
