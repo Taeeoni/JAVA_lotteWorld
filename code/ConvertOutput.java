@@ -1,8 +1,22 @@
 package LotteTicket;
 
 public class ConvertOutput { // int 데이터들 알맞게 String 으로 변환
+	
+	String ticketClass;
+	String ticketType;
+	String ageGroup;
+	String preferClass;
+
+	public ConvertOutput() {
+		
+		ticketClass = "";
+		ticketType = "";
+		ageGroup = "";
+		preferClass = "";
+		
+	}
+	
 	String convertTicketClass(int input) {
-		String ticketClass = "";
 		if (input == 1) {
 			ticketClass = StaticValue.ALL; // static으로 되어있어서 객체생성 없이 바로 호출 가능
 		} else if (input == 2) {
@@ -12,7 +26,6 @@ public class ConvertOutput { // int 데이터들 알맞게 String 으로 변환
 	}
 
 	String convertTicketType(int input) {
-		String ticketType = "";
 		if (input == 1) {
 			ticketType = StaticValue.FULLDAY;
 		} else if (input == 2) {
@@ -22,7 +35,6 @@ public class ConvertOutput { // int 데이터들 알맞게 String 으로 변환
 	}
 
 	String convertAgeGroup(int input) {
-		String ageGroup = "";
 		if (input == 0) {
 			ageGroup = StaticValue.LITTLE;
 		} else if (input == 1) {
@@ -40,7 +52,6 @@ public class ConvertOutput { // int 데이터들 알맞게 String 으로 변환
 	}
 
 	String convertPreferClass(int input) {
-		String preferClass = "";
 		if (input == 1) {
 			preferClass = StaticValue.NOTHING_STR;
 		} else if (input == 2) {
