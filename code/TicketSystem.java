@@ -20,12 +20,12 @@ public class TicketSystem {
 	
 	public TicketSystem() { // 기본 생성자 , 인스턴스를 초기화
 		
-		exitIndex = 0;
+		exitIndex = 0; // 프로그램 종료 index
 		position = 0; // inputList 행 추가시 사용
 		companionPrint = 0; // 동반할인 프린트 여부 index
 		indexTitlePrint = true; // csv 파일 기록저장시 제목부분 write index
-		manAge = 0;
-		companionIndex = 0;
+		manAge = 0; // 만나이 
+		companionIndex = 0; // 동행할인 index
 		
 	} 
 
@@ -52,7 +52,7 @@ public class TicketSystem {
 			}
 			
 			if(exitIndex != 1) {
-				exitIndex = 0;
+				exitIndex = 0; // 0으로 바꿔주어야 다시 while 안으로 들어간다.
 			}
 			
 		} while (exitIndex != 1);
