@@ -36,7 +36,7 @@ public class TicketSystem {
 			ArrayList<OrderData> orderList = new ArrayList<OrderData>(); // arraylist reset
 			Print print = new Print(); 
 
-			while (exitIndex != 2) {
+			while (exitIndex != 2 && exitIndex != 1) {
 
 				logic(position, orderList);
 				// 고객정보 저장
@@ -51,8 +51,10 @@ public class TicketSystem {
 
 			}
 			
-			exitIndex = 0;
-
+			if(exitIndex != 1) {
+				exitIndex = 0;
+			}
+			
 		} while (exitIndex != 1);
 
 	}

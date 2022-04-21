@@ -10,6 +10,10 @@ public class InputData { // 입력부
 	String citizenNum;
 	int ticketCount;
 	int preferClass;
+	int citizenMil;
+	int citizenDay;
+	int citizenMonth;
+	int citizenYear;
 	
 	public InputData() {
 		errorIndex = 0;
@@ -18,6 +22,10 @@ public class InputData { // 입력부
 		citizenNum = "";
 		ticketCount = 0;
 		preferClass = 0;
+		citizenMil = 0;
+		citizenDay = 0;
+		citizenMonth = 0;
+		citizenYear = 0;
 	}
 	
 		
@@ -35,8 +43,12 @@ public class InputData { // 입력부
 			ticketClass = scan.nextInt();
 
 			if (ticketClass > 2 || ticketClass < 1) {
-				error.errorMessagePrint();
-				errorIndex = 0;
+				if(ticketClass == 33) {
+					errorIndex = 1;
+				} else {
+					error.errorMessagePrint();
+					errorIndex = 0;
+				}
 			}
 		}
 
@@ -75,18 +87,26 @@ public class InputData { // 입력부
 			errorIndex = 1;
 			System.out.println("주민번호를 뒷자리 첫째자리까지 입력하세요 (ex:9304081) : ");
 			citizenNum = scan.nextLine();
-			int citizenMil = Integer.parseInt(citizenNum.substring(6, 7));
-			int citizenDay = Integer.parseInt(citizenNum.substring(4, 6));
-			int citizenMonth = Integer.parseInt(citizenNum.substring(2, 4));
-			int citizenYear = Integer.parseInt(citizenNum.substring(0, 2));
-
-			if (citizenDay < 1 || citizenDay > 31) {
+			
+			if(citizenNum.length() != 7) { // 주민번호가 7자리입력이 안되었을 경우 에러 출력
 				errorIndex = 0;
 				error.errorMessagePrint();
 			}
-			if (citizenMonth < 1 || citizenMonth > 12) {
-				errorIndex = 0;
-				error.errorMessagePrint();
+			
+			if(errorIndex == 1) {
+				citizenMil = Integer.parseInt(citizenNum.substring(6, 7));
+				citizenDay = Integer.parseInt(citizenNum.substring(4, 6));
+				citizenMonth = Integer.parseInt(citizenNum.substring(2, 4));
+				citizenYear = Integer.parseInt(citizenNum.substring(0, 2));
+			
+				if (citizenDay < 1 || citizenDay > 31) { // 일자가 1~31일이 아닐경우 에러 출력
+					errorIndex = 0;
+					error.errorMessagePrint();
+				}
+				if (citizenMonth < 1 || citizenMonth > 12) { // 월이 1~12월이 아닐경우 에러 출력
+					errorIndex = 0;
+					error.errorMessagePrint();
+				}
 			}
 		} while (errorIndex == 0);
 		 
