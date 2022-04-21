@@ -103,6 +103,7 @@ public class Print { // 출력부
 	
 	
 	void salesAnalysis() throws NumberFormatException, IOException {
+		System.out.println("");
 		System.out.println("---------------------이용권 별 판매 현황-------------------------");
 		int count1 = 0;
 		int dayCount = 0;
@@ -201,6 +202,12 @@ public class Print { // 출력부
 		System.out.println("영유아 " + littleCountP + " 유아 " + babyCountP + " 어린이 " 
 				+ kidCountP + " 청소년 " + teenCountP + " 성인 " + adultCountP + " 노인 " + oldCountP);
 		System.out.println("파크이용권 총 매출 : " + priceSumP + "원");
+		
+		
+		System.out.println("");
+		System.out.println("--------------------- 일자별 판매 현황-------------------------");
+		System.out.println("");
+		System.out.println("---------------------우대권 판매 현황-------------------------");
 		
 	}
 
