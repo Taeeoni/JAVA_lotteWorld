@@ -61,7 +61,7 @@ public class TicketSystem {
 
 	}
 	
-	void logic(int position, ArrayList<OrderData> orderList) {
+	void logic(int position, ArrayList<OrderData> orderList) throws IOException {
 		
 
 

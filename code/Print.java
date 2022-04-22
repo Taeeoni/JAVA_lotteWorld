@@ -27,12 +27,19 @@ public class Print { // 출력부
 	void printTitle() throws IOException {
 
 		File file = new File("C:\\test\\lotteworldreport\\lotteReport.csv");
-		BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
-		bw.write("날짜, 이용권, 권종, 연령구분, 수량, 가격, 우대사항");
-		bw.newLine();
-		bw.flush();
-		bw.close();
-
+		
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		String line;
+		line = br.readLine();
+		String[] lineSplit = line.split(",");
+		
+		if(!lineSplit[0].equals("날짜")) {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
+			bw.write("날짜, 이용권, 권종, 연령구분, 수량, 가격, 우대사항");
+			bw.newLine();
+			bw.flush();
+			bw.close();
+		}
 	}
 
 	int entrancePrint(int position, ArrayList<OrderData> orderList) throws IOException {
@@ -41,8 +48,8 @@ public class Print { // 출력부
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date today = new Date();
 		nowTime = Integer.parseInt(format.format(today));
-		ConvertOutput convert = new ConvertOutput();
-
+		OrderData order = new OrderData();
+		
 		// String path = "C:\\test\\seoulapart\\listout.csv";
 		// BufferedReader br = new BufferedReader(new FileReader(path));
 		File file = new File("C:\\test\\lotteworldreport\\lotteReport.csv");
@@ -58,10 +65,10 @@ public class Print { // 출력부
 
 			for (int column = 0; column <= position; column++) {
 
-				String ticketClass = convert.convertTicketClass(orderList.get(column).getTicketClass());
-				String ticketType = convert.convertTicketType(orderList.get(column).getTicketType());
-				String ageGroup = convert.convertAgeGroup(orderList.get(column).getAgeGroup());
-				String preferClass = convert.convertPreferClass(orderList.get(column).getPreferClass());
+				String ticketClass = order.getTicketClassS(orderList.get(column).getTicketClass());
+				String ticketType = order.getTicketTypeS(orderList.get(column).getTicketType());
+				String ageGroup = order.getAgeGroupS(orderList.get(column).getAgeGroup());
+				String preferClass = order.getPreferClassS(orderList.get(column).getPreferClass());
 				// ticketClass ticketType ageGroup ticketCount price preferClass
 				System.out.println(ticketClass + "\t" + ticketType + "\t" + ageGroup + "\t"
 						+ orderList.get(column).getTicketCount() + "장\t" + orderList.get(column).getPrice() + "원\t*"
@@ -76,7 +83,6 @@ public class Print { // 출력부
 
 			bw.flush();
 			bw.close();
-			printCsv(); // lotteReport.csv 파일의 상황을 출력하기 위한 메소드로 이동
 
 			return 2;
 		}

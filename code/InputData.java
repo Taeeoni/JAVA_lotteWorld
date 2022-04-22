@@ -1,5 +1,6 @@
 package LotteTicket;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class InputData { // 입력부
@@ -29,10 +30,11 @@ public class InputData { // 입력부
 	}
 	
 		
-	int orderTicketClass() { // 이용권 종류 입력
+	int orderTicketClass() throws IOException { // 이용권 종류 입력
 		
 		ErrorProcess error = new ErrorProcess();
 		Scanner scan = new Scanner(System.in);
+		Print print = new Print();
 		
 		while (errorIndex == 0) {
 			errorIndex = 1;
@@ -45,6 +47,8 @@ public class InputData { // 입력부
 			if (ticketClass > 2 || ticketClass < 1) {
 				if(ticketClass == 33) {
 					errorIndex = 1;
+				} else if (ticketClass == 0) {
+					print.printCsv();// lotteReport.csv 파일의 상황을 출력하기 위한 메소드로 이동
 				} else {
 					error.errorMessagePrint();
 					errorIndex = 0;
@@ -81,6 +85,7 @@ public class InputData { // 입력부
 		
 		Scanner scan = new Scanner(System.in);
 		ErrorProcess error = new ErrorProcess();
+		OrderData order = new OrderData();
 		
 		
 		do { 
@@ -93,6 +98,7 @@ public class InputData { // 입력부
 				error.errorMessagePrint();
 			}
 			
+				
 			if(errorIndex == 1) {
 				citizenMil = Integer.parseInt(citizenNum.substring(6, 7));
 				citizenDay = Integer.parseInt(citizenNum.substring(4, 6));
@@ -107,6 +113,17 @@ public class InputData { // 입력부
 					errorIndex = 0;
 					error.errorMessagePrint();
 				}
+				
+				if (citizenYear < 2000 && citizenMil >=3) { // 1900년대생인데 뒷자리첫째자리가 3이상일 때 에러 출력
+					errorIndex = 0;
+					error.errorMessagePrint();
+				}
+				
+				if (citizenYear >= 2000 && citizenMil < 3) { // 2000년대생인데 뒷자리 첫째자리가 3미만일 때 에러 출력
+					errorIndex = 0;
+					error.errorMessagePrint();
+				}
+
 			}
 		} while (errorIndex == 0);
 		 
