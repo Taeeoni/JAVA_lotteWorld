@@ -6,7 +6,7 @@
 * void logic() : 티켓팅 시스템 진행, 로직
 
 ### [InputData](https://github.com//Taeeoni/JAVA_lotteWorld/tree/main/code/InputData.java) : 사용자의 입력값 받는 클래스
-* Ticketing.java : main  
+
 
 ### [InputCalculate](https://github.com//Taeeoni/JAVA_lotteWorld/tree/main/code/InputCalculate.java) : 사용자의 입력값을 통해 필요한 계산을 해주는 클래스
 
