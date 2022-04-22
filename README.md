@@ -15,3 +15,4 @@
 
 ### [Print](https://github.com//Taeeoni/JAVA_lotteWorld/tree/main/code/Print.java) : 티켓팅 결과 프린트, csv 파일 write, csv 파일 read
 
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTaeeoni%2FJAVA_lotteWorld&count_bg=%235C9AD2&title_bg=%2315D0C8&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
