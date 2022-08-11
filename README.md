@@ -10,8 +10,6 @@
 
 ### [InputCalculate](https://github.com//Taeeoni/JAVA_lotteWorld/tree/main/code/InputCalculate.java) : 사용자의 입력값을 통해 필요한 계산을 해주는 클래스
 
-### [ConvertOutput](https://github.com//Taeeoni/JAVA_lotteWorld/tree/main/code/ConvertOutput.java) : 사용자의 입력값을 프린트할때 알맞은값으로 변환 해주는 클래스
-
 
 ### [Print](https://github.com//Taeeoni/JAVA_lotteWorld/tree/main/code/Print.java) : 티켓팅 결과 프린트, csv 파일 write, csv 파일 read
 
